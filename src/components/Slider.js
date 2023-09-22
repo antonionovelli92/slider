@@ -6,15 +6,28 @@ const Slider = () => {
   const [recensioni, setRecensioni] = useState(data);
   const [active, setActive] = useState(0);
 
-  // Passa alla prossima slide
+  // ! Passa alla prossima slide
   const prossimaSlide = () => {
-    setActive((prevValue) => (prevValue + 1) % recensioni.length);
+    // Aumenta l'indice della slide attiva di 1
+    setActive(active + 1);
+
+    // Se stiamo alla fine, torniamo alla prima slide
+    if (active === recensioni.length - 1) {
+      setActive(0);
+    }
   };
 
-  // Passa alla slide precedente
+  // ! Passa alla slide precedente
   const precedenteSlide = () => {
-    setActive((prevValue) => (prevValue - 1 + recensioni.length) % recensioni.length);
+    // Riduci l'indice della slide attiva di 1
+    setActive(active - 1);
+
+    // Se siamo alla prima, passiamo all'ultima slide
+    if (active === 0) {
+      setActive(recensioni.length - 1);
+    }
   };
+
 
   // Cambia automaticamente la recensione ogni 4 secondi
   useEffect(() => {
