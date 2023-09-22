@@ -1,13 +1,74 @@
+/* Stile globale */
 body {
+  background-color: darkslategrey;
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Slider */
+.container .slider {
+  position: relative;
+  width: 80%;
+  /* Larghezza del tuo slider */
+  max-width: 800px;
+  /* Larghezza massima */
+  display: flex;
+  align-items: center;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* Bottoni */
+.btn-group.slider-btn-group {
+  position: absolute;
+  bottom: 20px;
+  /* Distanza dal basso */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  /* Spazio tra i bottoni */
+}
+
+.btn-slider {
+  background-color: lightskyblue;
+  color: white;
+  /* Cambiato il colore del testo per renderlo leggibile */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 16px;
+  /* Utilizzato il valore fisso per il bordo */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-slider:hover {
+  background-color: blueviolet;
+}
+
+.prev-slide {
+  order: 1;
+  /* Ordine dei bottoni */
+}
+
+.next-slide {
+  order: 2;
 }
